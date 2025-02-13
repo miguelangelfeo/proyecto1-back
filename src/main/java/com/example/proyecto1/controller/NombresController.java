@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @AllArgsConstructor
 
@@ -26,7 +27,7 @@ public class NombresController {
         return "Nombre guardado";
     }
 
-    @GetMapping(path = "nombres-bd")
+    @GetMapping(path = "/nombres-bd")
     public List<NombresORM> obtenerEstudiantesBD() {
         return nombresJPA.findAll();
     }
