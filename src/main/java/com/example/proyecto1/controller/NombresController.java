@@ -13,21 +13,21 @@ import java.util.List;
 @CrossOrigin("http://104.248.106.174")
 @RestController
 @AllArgsConstructor
-@RequestMapping("/api")
+
 public class NombresController {
 
     private NombresJPA nombresJPA;
     List<NombresDTO> nombres = new ArrayList<>();
 
 
-    @PostMapping(path = "/nombre")
+    @PostMapping(path = "/api/nombre")
     public String guardarEstudiante(@RequestBody NombresDTO nombre) {
         nombres.add(nombre);
         nombresJPA.save(new NombresORM(nombre.nombre()));
         return "Nombre guardado";
     }
 
-    @GetMapping(path = "/nombres-bd")
+    @GetMapping(path = "/api/nombres-bd")
     public List<NombresORM> obtenerEstudiantesBD() {
         return nombresJPA.findAll();
     }
