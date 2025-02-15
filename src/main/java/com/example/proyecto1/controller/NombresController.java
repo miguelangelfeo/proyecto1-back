@@ -1,13 +1,11 @@
 package com.example.proyecto1.controller;
 
-
-import com.example.proyecto1.bd.JPA.NombresJPA;
 import com.example.proyecto1.bd.ORM.NombresORM;
 import com.example.proyecto1.controller.DTO.NombresDTO;
+import com.example.proyecto1.logica.NombresService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -16,20 +14,16 @@ import java.util.List;
 @CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE})
 public class NombresController {
 
-    private NombresJPA nombresJPA;
-    List<NombresDTO> nombres = new ArrayList<>();
+    private final NombresService nombresService;
 
-
-    @PostMapping(path = "/nombre")
+    @PostMapping
     public String guardarEstudiante(@RequestBody NombresDTO nombre) {
-        nombres.add(nombre);
-        nombresJPA.save(new NombresORM(nombre.nombre()));
+        nombresService.guardar(nombre);
         return "Nombre guardado";
     }
 
-    @GetMapping(path = "/nombres-bd")
+    @GetMapping
     public List<NombresORM> obtenerEstudiantesBD() {
-        return nombresJPA.findAll();
+        return nombresService.obtenerTodos();
     }
-
 }
