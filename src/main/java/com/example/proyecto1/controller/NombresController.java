@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@CrossOrigin("http://104.248.106.174")
+@CrossOrigin(origins = "http://104.248.106.174", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST})
 @RestController
 @AllArgsConstructor
 
