@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-
+@RequestMapping("/backend")
 public class NombresController {
 
     private NombresJPA nombresJPA;
