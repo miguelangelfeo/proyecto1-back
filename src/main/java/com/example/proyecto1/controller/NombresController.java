@@ -10,8 +10,8 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/backend")
-@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE})
+@RequestMapping("/backend/datos")
+@CrossOrigin(origins = "*")
 public class NombresController {
 
     private final NombresService nombresService;
