@@ -19,14 +19,14 @@ public class NombresController {
     List<NombresDTO> nombres = new ArrayList<>();
 
 
-    @PostMapping(path = "/api/nombre")
+    @PostMapping(path = "/nombre")
     public String guardarEstudiante(@RequestBody NombresDTO nombre) {
         nombres.add(nombre);
         nombresJPA.save(new NombresORM(nombre.nombre()));
         return "Nombre guardado";
     }
 
-    @GetMapping(path = "/api/nombres-bd")
+    @GetMapping(path = "/nombres-bd")
     public List<NombresORM> obtenerEstudiantesBD() {
         return nombresJPA.findAll();
     }
