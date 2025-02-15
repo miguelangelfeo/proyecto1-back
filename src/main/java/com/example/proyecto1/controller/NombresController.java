@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@CrossOrigin(origins = "http://104.248.106.174")
+@CrossOrigin("http://104.248.106.174")
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api")
