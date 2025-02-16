@@ -15,8 +15,10 @@ public class NombresService {
         this.nombresJPA = nombresJPA;
     }
 
-    public NombresORM guardar(NombresDTO nombre) {
-        return nombresJPA.save(new NombresORM(nombre.nombre()));
+    public NombresORM guardar(NombresDTO nombreDTO) {
+        NombresORM nombreORM = new NombresORM();
+        nombreORM.setNombre(nombreDTO.nombre());
+        return nombresJPA.save(nombreORM);
     }
 
     public List<NombresORM> obtenerTodos() {

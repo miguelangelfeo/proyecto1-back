@@ -10,20 +10,20 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/backend/datos")
-@CrossOrigin(origins = "*")
+@RequestMapping("/backend")
+@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST})
 public class NombresController {
 
     private final NombresService nombresService;
 
-    @PostMapping
-    public String guardarEstudiante(@RequestBody NombresDTO nombre) {
+    @PostMapping(path = "/nombre")
+    public String guardarNombre(@RequestBody NombresDTO nombre) {
         nombresService.guardar(nombre);
-        return "Nombre guardado";
+        return "Nombre guardado correctamente";
     }
 
-    @GetMapping
-    public List<NombresORM> obtenerEstudiantesBD() {
+    @GetMapping(path = "/nombres")
+    public List<NombresORM> obtenerNombres() {
         return nombresService.obtenerTodos();
     }
 }
